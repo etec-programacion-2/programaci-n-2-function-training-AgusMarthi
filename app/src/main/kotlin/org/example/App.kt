@@ -3,7 +3,7 @@
  */
 package org.example
 
-fun main() {
+fun main() { 
     println("=== Etapa 1: Funciones Básicas ===")
     // TODO: Implementar función calcularPromedio
     val promedio1 = calcularPromedio(7.5, 8.0)
@@ -54,35 +54,51 @@ fun main() {
 
 // Etapa 1
 fun calcularPromedio(nota1: Double, nota2: Double): Double {
-    // Implementar aquí
-    return 0.0
+    // Implementar aquí 
+    return (nota1 + nota2)/2
 }
 
 fun esAprobado(nota: Double): Boolean {
     // Implementar aquí
+    if (nota >= 6){
+        return true
+    }
     return false
 }
 
 // Etapa 2
 fun calcularPromedioTresNotas(nota1: Double, nota2: Double, nota3: Double): Double {
     // Implementar aquí
-    return 0.0
+    return (nota1 + nota2 + nota3)/3
 }
 
 fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String {
     // Implementar aquí
-    return ""
+    return "Nombre y Apellido: $nombre $apellido | Nota: $nota" 
 }
 
 // Etapa 3
 fun calcularPromedioCurso(notas: List<Double>): Double {
     // Implementar aquí
-    return 0.0
+    var alumno = 0
+    var sumnota = 0
+    for (i in notas){
+        alumno++
+        sumnota += i
+    }
+    return sumnota/alumno
 }
 
 fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<String> {
     // Implementar aquí
-    return emptyList()
+    var alumno = 0
+    var aprobados = mutableListOf<String>()
+    for (i in notas){
+        if (i >= 6){
+            aprobados.add(nombres[alumno])
+        }
+        alumno++
+    }    return emptyList()
 }
 
 // Etapa 4
