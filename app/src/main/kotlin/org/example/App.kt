@@ -76,7 +76,7 @@ fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String 
 
 // Etapa 3
 fun calcularPromedioCurso(notas: List<Double>): Double {
-    var alumno = 1
+    var alumno = 0
     var sumnota = 0.0
     for (i in notas){
         alumno++
@@ -102,17 +102,17 @@ fun generarBoletin(nombre: String, materias: List<String>, notas: List<Double>):
     println("Alumno\  |\nMateria\ | Juan Pérez")
     var x = 0
     for (i in materias){
-        println("$materias[x] | $notas[x]")
+        println("${materias[i]} | ${notas[i]}\n")
         x++
     }
 }
 
 fun obtenerNotaMasAlta(notas: List<Double>): Double {
-    return notas.max()
+    return notas.maxOrNull() ?: 0.0
 }
 
 fun obtenerNotaMasBaja(notas: List<Double>): Double {
-    return notas.min()
+    return notas.minOrNull() ?: 0.0
 }
 
 fun contarAprobados(notas: List<Double>): Int {
