@@ -76,18 +76,12 @@ fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String 
 
 // Etapa 3
 fun calcularPromedioCurso(notas: List<Double>): Double {
-    var alumno = 0
-    var sumnota = 0.0
-    for (i in notas){
-        alumno++
-        sumnota += i
-    }
-    return sumnota/alumno
+    return notas.sum() / notas.size
 }
 
 fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<String> {
     var alumno = 0
-    var aprobados = mutableListOf<String>()
+    val aprobados = mutableListOf<String>()
     for (i in notas){
         if (i >= 6.0){
             aprobados.add(nombres[alumno])
@@ -99,20 +93,22 @@ fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<St
 
 // Etapa 4
 fun generarBoletin(nombre: String, materias: List<String>, notas: List<Double>): String {
-    println("Alumno\  |\nMateria\ | Juan Pérez")
+    var boleta = "Alumno  | $nombre"
+    boleta += "\nMateria | Notas"
     var x = 0
     for (i in materias){
-        println("${materias[i]} | ${notas[i]}\n")
+        boleta += "\n$i | ${notas[x]}"
         x++
     }
+    return boleta
 }
 
 fun obtenerNotaMasAlta(notas: List<Double>): Double {
-    return notas.maxOrNull() ?: 0.0
+    return notas.max()
 }
 
 fun obtenerNotaMasBaja(notas: List<Double>): Double {
-    return notas.minOrNull() ?: 0.0
+    return notas.min()
 }
 
 fun contarAprobados(notas: List<Double>): Int {
